@@ -29,26 +29,26 @@ export const SkillTree = () => {
 
   const handleRespec = () => {
     if (player.soulShards >= 500) {
-      // Revert stats
-      let updatedPlayer = { ...player };
-      player.unlockedSkills.forEach(skillId => {
-        const skill = SKILLS[skillId];
-        if (skill && skill.effect) {
-          if (skill.effect.maxHp) updatedPlayer.maxHp -= skill.effect.maxHp;
-          if (skill.effect.maxEnergy) updatedPlayer.maxEnergy -= skill.effect.maxEnergy;
-          if (skill.effect.attack) updatedPlayer.attack -= skill.effect.attack;
-          if (skill.effect.defense) updatedPlayer.defense -= skill.effect.defense;
-          if (skill.effect.speed) updatedPlayer.speed -= skill.effect.speed;
-        }
+      setPlayer(prev => {
+        if (!prev) return null;
+        let updatedPlayer = { ...prev };
+        prev.unlockedSkills.forEach(skillId => {
+          const skill = SKILLS[skillId];
+          if (skill && skill.effect) {
+            if (skill.effect.maxHp) updatedPlayer.maxHp -= skill.effect.maxHp;
+            if (skill.effect.maxEnergy) updatedPlayer.maxEnergy -= skill.effect.maxEnergy;
+            if (skill.effect.attack) updatedPlayer.attack -= skill.effect.attack;
+            if (skill.effect.defense) updatedPlayer.defense -= skill.effect.defense;
+            if (skill.effect.speed) updatedPlayer.speed -= skill.effect.speed;
+          }
+        });
+        
+        updatedPlayer.hp = Math.min(updatedPlayer.hp, updatedPlayer.maxHp);
+        updatedPlayer.energy = Math.min(updatedPlayer.energy, updatedPlayer.maxEnergy);
+        updatedPlayer.soulShards -= 500;
+        updatedPlayer.unlockedSkills = [];
+        return updatedPlayer;
       });
-      
-      // Ensure HP and Energy don't exceed new max
-      updatedPlayer.hp = Math.min(updatedPlayer.hp, updatedPlayer.maxHp);
-      updatedPlayer.energy = Math.min(updatedPlayer.energy, updatedPlayer.maxEnergy);
-      
-      updatedPlayer.soulShards -= 500;
-      updatedPlayer.unlockedSkills = [];
-      setPlayer(updatedPlayer);
       addLog("Respec successful! Skills reset.");
       setShowRespecConfirm(false);
     } else {

@@ -1,6 +1,6 @@
-export type GameState = 'TITLE' | 'CHARACTER_SELECT' | 'OVERWORLD' | 'COMBAT' | 'DIALOGUE' | 'GAME_OVER' | 'SHOP' | 'INVENTORY' | 'CUTSCENE' | 'SKILL_TREE';
+export type GameState = 'TITLE' | 'CHARACTER_SELECT' | 'OVERWORLD' | 'COMBAT' | 'DIALOGUE' | 'GAME_OVER' | 'SHOP' | 'INVENTORY' | 'CUTSCENE' | 'SKILL_TREE' | 'LORE_BOOK';
 
-export type CharacterClass = 'DEATH' | 'WAR' | 'FAMINE' | 'CONQUEST' | 'ENA' | 'PLAGUE' | 'STRIFE' | 'MODIFY' | 'CORRUPT' | 'ERI' | 'JIKASHU' | 'LUX' | 'VELVETRE' | 'MADISON';
+export type CharacterClass = 'DEATH' | 'WAR' | 'FAMINE' | 'CONQUEST' | 'ENA' | 'PLAGUE' | 'STRIFE' | 'MODIFY' | 'CORRUPT' | 'ERI' | 'JIKASHU' | 'LUX' | 'VELVETTE' | 'MADISON' | 'SUGAR_RUSH' | 'JACKHAMMER' | 'HIMO' | 'ARCHITECT';
 
 export interface Skill {
   id: string;
@@ -50,8 +50,10 @@ export interface PlayerStats {
   soulShards: number;
   collectibles: string[];
   inventory: string[]; // Array of item IDs
+  equipment: string[]; // Array of equipped item IDs
   unlockedSkills: string[];
   mindControlDuration: number;
+  corruption?: number; // 0-100
   level: number;
   exp: number;
   nextLevelExp: number;
@@ -89,6 +91,6 @@ export interface MapData {
   startPos: Position;
   enemies: { pos: Position; enemyId: string }[];
   npcs: { pos: Position; dialogue: string[]; isShop?: boolean }[];
-  doors?: { pos: Position; targetMap: string; targetPos: Position }[];
+  doors?: { pos: Position; targetMap: string; targetPos: Position; isLocked?: boolean }[];
   collectibles?: { pos: Position; id: string; name: string; description: string; type: 'LORE' | 'STAT_BOOST' }[];
 }

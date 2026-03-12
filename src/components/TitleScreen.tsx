@@ -2,9 +2,16 @@ import React from 'react';
 import { useGame } from '../game/GameEngine';
 
 export const TitleScreen = () => {
-  const { setGameState, showDialogue } = useGame();
+  const { setGameState, showDialogue, resetGame } = useGame();
 
   const handleStart = () => {
+    // Check if player already exists (from save)
+    const savedPlayer = localStorage.getItem('soul_shards_player');
+    if (savedPlayer) {
+      setGameState('OVERWORLD');
+      return;
+    }
+
     showDialogue([
       "PERFORMANCE REVIEW INITIATED.",
       "ASSESSING PROGRESS FOR CYCLE OMEGA.",
@@ -28,12 +35,25 @@ export const TitleScreen = () => {
         Explore Shibuya, Blackwood University, The Metaverse, and Hell itself. Face off against Lux, Velvette, Eri Vaun, and the Architect.
       </p>
 
-      <button 
-        onClick={handleStart}
-        className="px-6 py-3 border-2 border-white hover:bg-white hover:text-black transition-colors text-xl"
-      >
-        START CYCLE OMEGA
-      </button>
+      <div className="flex flex-col gap-4">
+        <button 
+          onClick={handleStart}
+          className="px-12 py-4 border-2 border-white hover:bg-white hover:text-black transition-all duration-300 text-2xl font-bold tracking-widest shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.5)]"
+        >
+          START CYCLE OMEGA
+        </button>
+
+        <button 
+          onClick={() => {
+            if (window.confirm("Are you sure you want to delete all progress? This cannot be undone.")) {
+              resetGame();
+            }
+          }}
+          className="px-6 py-2 text-red-500 hover:text-red-400 transition-colors text-sm font-bold tracking-widest opacity-50 hover:opacity-100"
+        >
+          RESET SYSTEM DATA
+        </button>
+      </div>
     </div>
   );
 };

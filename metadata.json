@@ -1,5 +1,9 @@
 {
-  "name": "Horsemen Chronicles: Apocalypse",
-  "description": "A pixel art open-world RPG where you play as the Four Horsemen of the Apocalypse navigating a neon-soaked, broken reality.",
-  "requestFramePermissions": []
+  "name": "Horsemen Chronicles: Cycle Omega",
+  "description": "The massive Incarnate update. Play as the Horsemen or Ena in a neon-soaked apocalypse. Featuring level scaling, deep lore, and the Architect's Domain.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
 }

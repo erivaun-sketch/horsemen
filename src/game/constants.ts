@@ -17,8 +17,10 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
+    corruption: 0,
     level: 1,
     exp: 0,
     nextLevelExp: 100,
@@ -39,6 +41,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -61,6 +64,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -83,6 +87,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -105,6 +110,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -127,6 +133,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -149,6 +156,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -171,6 +179,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -193,6 +202,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -215,6 +225,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -237,6 +248,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -259,6 +271,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -281,6 +294,7 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -303,6 +317,53 @@ export const CHARACTERS: Record<string, PlayerStats> = {
     soulShards: 0,
     collectibles: [],
     inventory: [],
+    equipment: [],
+    unlockedSkills: [],
+    mindControlDuration: 0,
+    level: 1,
+    exp: 0,
+    nextLevelExp: 100,
+  },
+  SUGAR_RUSH: {
+    name: 'Sugar Rush',
+    class: 'SUGAR_RUSH',
+    hp: 100,
+    maxHp: 100,
+    energy: 120,
+    maxEnergy: 120,
+    attack: 35,
+    defense: 5,
+    speed: 25,
+    skillName: 'Sugar Crash',
+    color: 'text-pink-400',
+    icon: '🍭',
+    soulShards: 0,
+    collectibles: [],
+    inventory: [],
+    equipment: [],
+    unlockedSkills: [],
+    mindControlDuration: 0,
+    level: 1,
+    exp: 0,
+    nextLevelExp: 100,
+  },
+  JACKHAMMER: {
+    name: 'Jackhammer',
+    class: 'JACKHAMMER',
+    hp: 200,
+    maxHp: 200,
+    energy: 60,
+    maxEnergy: 60,
+    attack: 15,
+    defense: 30,
+    speed: 5,
+    skillName: 'Lucky Strike',
+    color: 'text-yellow-600',
+    icon: '🔨',
+    soulShards: 0,
+    collectibles: [],
+    inventory: [],
+    equipment: [],
     unlockedSkills: [],
     mindControlDuration: 0,
     level: 1,
@@ -322,6 +383,7 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   DEATH_PASSIVE_4: { id: 'DEATH_PASSIVE_4', name: 'Bone Armor', description: 'Passive: +15 Defense', cost: 150, characterClass: 'DEATH', effect: { defense: 15 }, icon: '🦴', position: { x: 90, y: 30 } },
   DEATH_PASSIVE_5: { id: 'DEATH_PASSIVE_5', name: 'Eternal Life', description: 'Passive: +50 Max HP', cost: 200, characterClass: 'DEATH', effect: { maxHp: 50 }, icon: '⏳', position: { x: 50, y: 10 } },
   DEATH_ULT: { id: 'DEATH_ULT', name: 'Grim Reaper', description: '+40 Attack, +50 Max Energy', cost: 500, characterClass: 'DEATH', requires: ['DEATH_SCYTHE_1', 'DEATH_SOUL_1', 'DEATH_HP_1'], effect: { attack: 40, maxEnergy: 50 }, icon: '☠️', position: { x: 50, y: 20 } },
+  DEATH_MASTERY: { id: 'DEATH_MASTERY', name: 'Death Mastery', description: 'Passive: +100 Attack, +100 Defense', cost: 1000, characterClass: 'DEATH', requires: ['DEATH_ULT'], effect: { attack: 100, defense: 100 }, icon: '🌌', position: { x: 50, y: 0 } },
 
   // WAR SKILLS
   WAR_STR_1: { id: 'WAR_STR_1', name: 'Brute Force I', description: '+10 Attack', cost: 50, characterClass: 'WAR', effect: { attack: 10 }, icon: '💪', position: { x: 50, y: 80 } },
@@ -333,6 +395,7 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   WAR_PASSIVE_4: { id: 'WAR_PASSIVE_4', name: 'Juggernaut', description: 'Passive: +40 Max HP', cost: 150, characterClass: 'WAR', effect: { maxHp: 40 }, icon: '🦍', position: { x: 90, y: 30 } },
   WAR_PASSIVE_5: { id: 'WAR_PASSIVE_5', name: 'War Cry', description: 'Passive: +25 Attack', cost: 200, characterClass: 'WAR', effect: { attack: 25 }, icon: '🗣️', position: { x: 50, y: 10 } },
   WAR_ULT: { id: 'WAR_ULT', name: 'Avatar of War', description: '+30 Attack, +100 Max HP', cost: 500, characterClass: 'WAR', requires: ['WAR_STR_2', 'WAR_HP_1'], effect: { attack: 30, maxHp: 100 }, icon: '🌋', position: { x: 50, y: 20 } },
+  WAR_MASTERY: { id: 'WAR_MASTERY', name: 'War Mastery', description: 'Passive: +150 Max HP, +50 Defense', cost: 1000, characterClass: 'WAR', requires: ['WAR_ULT'], effect: { maxHp: 150, defense: 50 }, icon: '🛡️', position: { x: 50, y: 0 } },
 
   // FAMINE SKILLS
   FAMINE_DRAIN_1: { id: 'FAMINE_DRAIN_1', name: 'Starvation I', description: '+10 Attack, +10 Defense', cost: 50, characterClass: 'FAMINE', effect: { attack: 10, defense: 10 }, icon: '🍽️', position: { x: 50, y: 80 } },
@@ -344,6 +407,7 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   FAMINE_PASSIVE_4: { id: 'FAMINE_PASSIVE_4', name: 'Desolation', description: 'Passive: +20 Defense', cost: 150, characterClass: 'FAMINE', effect: { defense: 20 }, icon: '🏜️', position: { x: 90, y: 30 } },
   FAMINE_PASSIVE_5: { id: 'FAMINE_PASSIVE_5', name: 'Feast', description: 'Passive: +25 Max Energy', cost: 200, characterClass: 'FAMINE', effect: { maxEnergy: 25 }, icon: '🍖', position: { x: 50, y: 10 } },
   FAMINE_ULT: { id: 'FAMINE_ULT', name: 'Black Scale', description: '+30 Defense, +50 Max HP', cost: 500, characterClass: 'FAMINE', requires: ['FAMINE_DRAIN_1', 'FAMINE_DEF_1', 'FAMINE_HP_1'], effect: { defense: 30, maxHp: 50 }, icon: '⚖️', position: { x: 50, y: 20 } },
+  FAMINE_MASTERY: { id: 'FAMINE_MASTERY', name: 'Famine Mastery', description: 'Passive: +200 Max HP, +100 Max Energy', cost: 1000, characterClass: 'FAMINE', requires: ['FAMINE_ULT'], effect: { maxHp: 200, maxEnergy: 100 }, icon: '🥣', position: { x: 50, y: 0 } },
 
   // CONQUEST SKILLS
   CONQ_SPEED_1: { id: 'CONQ_SPEED_1', name: 'Swift Strike I', description: '+15 Attack', cost: 50, characterClass: 'CONQUEST', effect: { attack: 15 }, icon: '⚡', position: { x: 50, y: 80 } },
@@ -355,6 +419,7 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   CONQ_PASSIVE_4: { id: 'CONQ_PASSIVE_4', name: 'Imperial Might', description: 'Passive: +30 Max HP', cost: 150, characterClass: 'CONQUEST', effect: { maxHp: 30 }, icon: '💪', position: { x: 90, y: 30 } },
   CONQ_PASSIVE_5: { id: 'CONQ_PASSIVE_5', name: 'Sovereign', description: 'Passive: +25 Max Energy', cost: 200, characterClass: 'CONQUEST', effect: { maxEnergy: 25 }, icon: '🪑', position: { x: 50, y: 10 } },
   CONQ_ULT: { id: 'CONQ_ULT', name: 'Emperor', description: '+30 Attack, +30 Defense', cost: 500, characterClass: 'CONQUEST', requires: ['CONQ_SPEED_1', 'CONQ_CROWN_1', 'CONQ_DEF_1'], effect: { attack: 30, defense: 30 }, icon: '🏰', position: { x: 50, y: 20 } },
+  CONQ_MASTERY: { id: 'CONQ_MASTERY', name: 'Conquest Mastery', description: 'Passive: +100 Speed, +50 Attack', cost: 1000, characterClass: 'CONQUEST', requires: ['CONQ_ULT'], effect: { speed: 100, attack: 50 }, icon: '🚩', position: { x: 50, y: 0 } },
 
   // ENA SKILLS
   ENA_CORRUPT_1: { id: 'ENA_CORRUPT_1', name: 'Corruption I', description: '+15 Attack', cost: 50, characterClass: 'ENA', effect: { attack: 15 }, icon: '🟣', position: { x: 50, y: 80 } },
@@ -393,18 +458,27 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   LUX_BEAM_1: { id: 'LUX_BEAM_1', name: 'Light Beam I', description: '+15 Attack', cost: 50, characterClass: 'LUX', effect: { attack: 15 }, icon: '💡', position: { x: 50, y: 80 } },
   LUX_SHIELD_1: { id: 'LUX_SHIELD_1', name: 'Prism Shield', description: '+20 Defense', cost: 100, characterClass: 'LUX', effect: { defense: 20 }, icon: '🛡️', position: { x: 20, y: 50 } },
   LUX_ENERGY_1: { id: 'LUX_ENERGY_1', name: 'Solar Flare', description: '+30 Max Energy', cost: 100, characterClass: 'LUX', effect: { maxEnergy: 30 }, icon: '☀️', position: { x: 80, y: 50 } },
+  LUX_PASSIVE_1: { id: 'LUX_PASSIVE_1', name: 'Luminescence', description: 'Passive: +15 Attack', cost: 150, characterClass: 'LUX', effect: { attack: 15 }, icon: '✨', position: { x: 10, y: 30 } },
+  LUX_PASSIVE_2: { id: 'LUX_PASSIVE_2', name: 'Photon Speed', description: 'Passive: +20 Speed', cost: 150, characterClass: 'LUX', effect: { speed: 20 }, icon: '🏃', position: { x: 30, y: 30 } },
+  LUX_PASSIVE_3: { id: 'LUX_PASSIVE_3', name: 'Radiance', description: 'Passive: +30 Max HP', cost: 150, characterClass: 'LUX', effect: { maxHp: 30 }, icon: '🔆', position: { x: 70, y: 30 } },
   LUX_ULT: { id: 'LUX_ULT', name: 'Supernova', description: '+50 Attack, +50 Max Energy', cost: 500, characterClass: 'LUX', requires: ['LUX_BEAM_1', 'LUX_SHIELD_1', 'LUX_ENERGY_1'], effect: { attack: 50, maxEnergy: 50 }, icon: '🌟', position: { x: 50, y: 20 } },
 
   // VELVETRE SKILLS
   VELVET_STRIKE_1: { id: 'VELVET_STRIKE_1', name: 'Velvet Strike I', description: '+20 Attack', cost: 50, characterClass: 'VELVETRE', effect: { attack: 20 }, icon: '🎀', position: { x: 50, y: 80 } },
   VELVET_SPEED_1: { id: 'VELVET_SPEED_1', name: 'Silk Step', description: '+15 Speed', cost: 100, characterClass: 'VELVETRE', effect: { speed: 15 }, icon: '🩰', position: { x: 20, y: 50 } },
   VELVET_HP_1: { id: 'VELVET_HP_1', name: 'Plush Armor', description: '+40 Max HP', cost: 100, characterClass: 'VELVETRE', effect: { maxHp: 40 }, icon: '🧸', position: { x: 80, y: 50 } },
+  VELVET_PASSIVE_1: { id: 'VELVET_PASSIVE_1', name: 'Soft Touch', description: 'Passive: +15 Defense', cost: 150, characterClass: 'VELVETRE', effect: { defense: 15 }, icon: '☁️', position: { x: 10, y: 30 } },
+  VELVET_PASSIVE_2: { id: 'VELVET_PASSIVE_2', name: 'Elegant Grace', description: 'Passive: +20 Speed', cost: 150, characterClass: 'VELVETRE', effect: { speed: 20 }, icon: '💃', position: { x: 30, y: 30 } },
+  VELVET_PASSIVE_3: { id: 'VELVET_PASSIVE_3', name: 'Crimson Heart', description: 'Passive: +25 Attack', cost: 150, characterClass: 'VELVETRE', effect: { attack: 25 }, icon: '❤️', position: { x: 70, y: 30 } },
   VELVET_ULT: { id: 'VELVET_ULT', name: 'Crimson Ribbon', description: '+40 Attack, +40 Speed', cost: 500, characterClass: 'VELVETRE', requires: ['VELVET_STRIKE_1', 'VELVET_SPEED_1', 'VELVET_HP_1'], effect: { attack: 40, speed: 40 }, icon: '🎗️', position: { x: 50, y: 20 } },
 
   // MADISON SKILLS
   MADISON_BASH_1: { id: 'MADISON_BASH_1', name: 'Shield Bash I', description: '+15 Attack, +10 Defense', cost: 50, characterClass: 'MADISON', effect: { attack: 15, defense: 10 }, icon: '🛡️', position: { x: 50, y: 80 } },
   MADISON_DEF_1: { id: 'MADISON_DEF_1', name: 'Iron Fortress', description: '+30 Defense', cost: 100, characterClass: 'MADISON', effect: { defense: 30 }, icon: '🏰', position: { x: 20, y: 50 } },
   MADISON_HP_1: { id: 'MADISON_HP_1', name: 'Stalwart', description: '+50 Max HP', cost: 100, characterClass: 'MADISON', effect: { maxHp: 50 }, icon: '❤️', position: { x: 80, y: 50 } },
+  MADISON_PASSIVE_1: { id: 'MADISON_PASSIVE_1', name: 'Guardian Spirit', description: 'Passive: +20 Defense', cost: 150, characterClass: 'MADISON', effect: { defense: 20 }, icon: '👼', position: { x: 10, y: 30 } },
+  MADISON_PASSIVE_2: { id: 'MADISON_PASSIVE_2', name: 'Friendship Power', description: 'Passive: +30 Max HP', cost: 150, characterClass: 'MADISON', effect: { maxHp: 30 }, icon: '🤝', position: { x: 30, y: 30 } },
+  MADISON_PASSIVE_3: { id: 'MADISON_PASSIVE_3', name: 'Unbreakable', description: 'Passive: +15 Attack', cost: 150, characterClass: 'MADISON', effect: { attack: 15 }, icon: '💎', position: { x: 70, y: 30 } },
   MADISON_ULT: { id: 'MADISON_ULT', name: 'Aegis Wall', description: '+60 Defense, +60 Max HP', cost: 500, characterClass: 'MADISON', requires: ['MADISON_BASH_1', 'MADISON_DEF_1', 'MADISON_HP_1'], effect: { defense: 60, maxHp: 60 }, icon: '🧱', position: { x: 50, y: 20 } },
 
   // MODIFY SKILLS
@@ -430,6 +504,27 @@ export const SKILLS: Record<string, import('./types').Skill> = {
   JIK_SMIRK_1: { id: 'JIK_SMIRK_1', name: 'The Smirk', description: '+20 Defense', cost: 100, characterClass: 'JIKASHU', effect: { defense: 20 }, icon: '😏', position: { x: 20, y: 50 } },
   JIK_FLY_1: { id: 'JIK_FLY_1', name: 'Demon Wings', description: '+20 Speed', cost: 100, characterClass: 'JIKASHU', effect: { speed: 20 }, icon: '🦇', position: { x: 80, y: 50 } },
   JIK_ULT: { id: 'JIK_ULT', name: 'Nursery Survivor', description: '+40 Attack, +40 Max HP', cost: 500, characterClass: 'JIKASHU', requires: ['JIK_GRAV_1', 'JIK_SMIRK_1', 'JIK_FLY_1'], effect: { attack: 40, maxHp: 40 }, icon: '👁️', position: { x: 50, y: 20 } },
+
+  // SUGAR RUSH SKILLS
+  SUGAR_SPEED_1: { id: 'SUGAR_SPEED_1', name: 'Sugar High', description: '+20 Speed', cost: 50, characterClass: 'SUGAR_RUSH', effect: { speed: 20 }, icon: '⚡', position: { x: 50, y: 80 } },
+  SUGAR_ATK_1: { id: 'SUGAR_ATK_1', name: 'Candy Crush', description: '+30 Attack', cost: 100, characterClass: 'SUGAR_RUSH', effect: { attack: 30 }, icon: '🍬', position: { x: 20, y: 50 } },
+  SUGAR_ULT: { id: 'SUGAR_ULT', name: 'Hyper-Pop Havoc', description: '+50 Attack, +50 Speed', cost: 500, characterClass: 'SUGAR_RUSH', requires: ['SUGAR_SPEED_1', 'SUGAR_ATK_1'], effect: { attack: 50, speed: 50 }, icon: '🎸', position: { x: 50, y: 20 } },
+
+  // JACKHAMMER SKILLS
+  JACK_HP_1: { id: 'JACK_HP_1', name: 'Bulk Up', description: '+100 Max HP', cost: 50, characterClass: 'JACKHAMMER', effect: { maxHp: 100 }, icon: '💪', position: { x: 50, y: 80 } },
+  JACK_DEF_1: { id: 'JACK_DEF_1', name: 'Iron Tracksuit', description: '+40 Defense', cost: 100, characterClass: 'JACKHAMMER', effect: { defense: 40 }, icon: '🧥', position: { x: 80, y: 50 } },
+  JACK_ULT: { id: 'JACK_ULT', name: 'Jackpot Slam', description: '+200 Max HP, +50 Defense', cost: 500, characterClass: 'JACKHAMMER', requires: ['JACK_HP_1', 'JACK_DEF_1'], effect: { maxHp: 200, defense: 50 }, icon: '🎰', position: { x: 50, y: 20 } },
+  VOID_MASTERY: {
+    id: 'VOID_MASTERY',
+    name: 'Void Mastery',
+    description: 'Master the emptiness. +50 to all stats.',
+    cost: 2000,
+    characterClass: 'ALL',
+    requires: [], // Accessible to all who have enough shards
+    position: { x: 50, y: 5 },
+    icon: '🌌',
+    effect: { attack: 50, defense: 50, maxHp: 50, maxEnergy: 50, speed: 50 }
+  }
 };
 
 export const ITEMS: Record<string, any> = {
@@ -497,6 +592,30 @@ export const ITEMS: Record<string, any> = {
     type: 'EQUIPMENT',
     effect: { attack: 20, defense: 20 }
   },
+  NEON_BLADE: {
+    id: 'NEON_BLADE',
+    name: 'Neon Blade',
+    description: 'A blade that hums with neon energy. +50 Attack.',
+    price: 1200,
+    type: 'EQUIPMENT',
+    effect: { attack: 50 }
+  },
+  CYBER_SHIELD: {
+    id: 'CYBER_SHIELD',
+    name: 'Cyber Shield',
+    description: 'A high-tech shield. +50 Defense.',
+    price: 1200,
+    type: 'EQUIPMENT',
+    effect: { defense: 50 }
+  },
+  ULTIMATE_DRINK: {
+    id: 'ULTIMATE_DRINK',
+    name: 'Ultimate Drink',
+    description: 'Restores all HP and Energy. Permanently +10 Max HP.',
+    price: 500,
+    type: 'CONSUMABLE',
+    effect: { hp: 9999, energy: 9999, maxHp: 10 }
+  },
   OMEGA_PATCH: {
     id: 'OMEGA_PATCH',
     name: 'Omega Patch',
@@ -552,6 +671,46 @@ export const ITEMS: Record<string, any> = {
     price: 800,
     type: 'EQUIPMENT',
     effect: { attack: 50 }
+  },
+  SPEED_CHIP: {
+    id: 'SPEED_CHIP',
+    name: 'Speed Chip',
+    description: 'Permanently increases Speed by 10.',
+    price: 300,
+    type: 'EQUIPMENT',
+    effect: { speed: 10 }
+  },
+  LUCK_CHARM: {
+    id: 'LUCK_CHARM',
+    name: 'Luck Charm',
+    description: 'Increases Speed by 20 (Dodge chance).',
+    price: 500,
+    type: 'EQUIPMENT',
+    effect: { speed: 20 }
+  },
+  REGEN_PATCH: {
+    id: 'REGEN_PATCH',
+    name: 'Regen Patch',
+    description: 'Increases Max HP by 50.',
+    price: 400,
+    type: 'EQUIPMENT',
+    effect: { maxHp: 50 }
+  },
+  SOUL_MAGNET: {
+    id: 'SOUL_MAGNET',
+    name: 'Soul Magnet',
+    description: 'Increases Attack by 5 and Defense by 5.',
+    price: 400,
+    type: 'EQUIPMENT',
+    effect: { attack: 5, defense: 5 }
+  },
+  MASTER_KEY: {
+    id: 'MASTER_KEY',
+    name: 'Master Key',
+    description: 'A key that glows with all colors of the neon spectrum.',
+    price: 1000,
+    type: 'EQUIPMENT',
+    effect: { attack: 1 } // Just a placeholder effect to make it equippable if needed
   }
 };
 
@@ -579,6 +738,30 @@ export const ENEMIES: Record<string, EnemyStats> = {
     icon: '🐻',
     dialogueOnEncounter: ['*Squishy roaring noises*'],
     soulShardDrop: 15,
+  },
+  CYBER_WOLF: {
+    id: 'CYBER_WOLF',
+    name: 'Cyber Wolf',
+    hp: 100,
+    maxHp: 100,
+    attack: 25,
+    defense: 5,
+    color: 'text-blue-500',
+    icon: '🐺',
+    dialogueOnEncounter: ['*Digital howling*'],
+    soulShardDrop: 30,
+  },
+  VOID_STALKER: {
+    id: 'VOID_STALKER',
+    name: 'Void Stalker',
+    hp: 150,
+    maxHp: 150,
+    attack: 35,
+    defense: 15,
+    color: 'text-purple-900',
+    icon: '👣',
+    dialogueOnEncounter: ['"I see you in the dark."'],
+    soulShardDrop: 50,
   },
   FACELESS: {
     id: 'FACELESS',
@@ -890,39 +1073,6 @@ export const ENEMIES: Record<string, EnemyStats> = {
     soulShardDrop: 1000,
     isBoss: true,
   },
-  ARCHITECT: {
-    id: 'ARCHITECT',
-    name: 'The Architect',
-    hp: 2000,
-    maxHp: 2000,
-    attack: 70,
-    defense: 50,
-    color: 'text-white',
-    icon: '📐',
-    dialogueOnEncounter: [
-      '"Deviation is instability. Instability is inefficiency."',
-      '"We have calculated your worth. You are an inefficiency."',
-      '"Look at yourself. The Golden Error. The Flaw that thinks it can feel."'
-    ],
-    soulShardDrop: 2000,
-    isBoss: true,
-  },
-  HIMO: {
-    id: 'HIMO',
-    name: 'Himo',
-    hp: 800,
-    maxHp: 800,
-    attack: 45,
-    defense: 35,
-    color: 'text-purple-800',
-    icon: '🦠',
-    dialogueOnEncounter: [
-      '"I thought I killed you; I won\'t make the mistake of letting you live this time."',
-      '"Welcome to the Apocalypse."'
-    ],
-    soulShardDrop: 400,
-    isBoss: true,
-  },
   GALACTIX: {
     id: 'GALACTIX',
     name: 'Galactix',
@@ -1027,10 +1177,40 @@ export const ENEMIES: Record<string, EnemyStats> = {
     dialogueOnEncounter: ['"Reconcile your past to reshape your present."', '"Only then can new beginnings spring."'],
     soulShardDrop: 600, isBoss: true, canMindControl: false,
   },
-  DEIUS: {
-    id: 'DEIUS', name: 'Deius', hp: 2200, maxHp: 2200, attack: 75, defense: 55, color: 'text-yellow-300', icon: '✨',
-    dialogueOnEncounter: ['"I am the Lesser Anti-God of Desires."'],
-    soulShardDrop: 500, isBoss: false, canMindControl: true,
+  ARCHITECT: {
+    id: 'ARCHITECT',
+    name: 'The Architect',
+    hp: 10000,
+    maxHp: 10000,
+    attack: 200,
+    defense: 150,
+    color: 'text-white',
+    icon: '📐',
+    dialogueOnEncounter: [
+      '"You are a variable."',
+      '"Variables are spent to balance equations."',
+      '"I am the Destination."'
+    ],
+    soulShardDrop: 5000,
+    isBoss: true,
+    canMindControl: false
+  },
+  HIMO: {
+    id: 'HIMO',
+    name: 'Himo',
+    hp: 8000,
+    maxHp: 8000,
+    attack: 180,
+    defense: 120,
+    color: 'text-red-900',
+    icon: '🩸',
+    dialogueOnEncounter: [
+      '"The Second War has begun."',
+      '"Repentance is not enough."'
+    ],
+    soulShardDrop: 4000,
+    isBoss: true,
+    canMindControl: false
   }
 };
 
@@ -1128,6 +1308,16 @@ for (let i = 0; i < 20; i++) {
   nurseryTiles[i][19] = 'WALL';
 }
 nurseryTiles[0][10] = 'DOOR'; // Door back to Hell
+nurseryTiles[10][19] = 'DOOR'; // Door to Secret Lab
+
+const secretLabTiles = createEmptyMap(15, 15);
+for (let i = 0; i < 15; i++) {
+  secretLabTiles[0][i] = 'WALL';
+  secretLabTiles[14][i] = 'WALL';
+  secretLabTiles[i][0] = 'WALL';
+  secretLabTiles[i][14] = 'WALL';
+}
+secretLabTiles[0][7] = 'DOOR'; // Door back to Nursery
 
 const shibuyaSkyTiles = createEmptyMap(15, 15);
 for (let i = 0; i < 15; i++) {
@@ -1137,6 +1327,15 @@ for (let i = 0; i < 15; i++) {
   shibuyaSkyTiles[i][14] = 'WALL';
 }
 shibuyaSkyTiles[14][7] = 'DOOR'; // Door back to Shibuya
+
+const eighthCircleTiles = createEmptyMap(15, 15);
+for (let i = 0; i < 15; i++) {
+  eighthCircleTiles[0][i] = 'WALL';
+  eighthCircleTiles[14][i] = 'WALL';
+  eighthCircleTiles[i][0] = 'WALL';
+  eighthCircleTiles[i][14] = 'WALL';
+}
+eighthCircleTiles[7][0] = 'DOOR'; // Door back to Shibuya
 
 export const MAPS: Record<string, MapData> = {
   SHIBUYA: {
@@ -1156,6 +1355,9 @@ export const MAPS: Record<string, MapData> = {
       { pos: { x: 18, y: 22 }, enemyId: 'KANNAGI' },
       { pos: { x: 12, y: 5 }, enemyId: 'PSITRON' },
       { pos: { x: 5, y: 5 }, enemyId: 'FAMINE_BOSS' },
+      { pos: { x: 15, y: 15 }, enemyId: 'GLITCH' },
+      { pos: { x: 8, y: 8 }, enemyId: 'BOUNTY_HUNTER' },
+      { pos: { x: 20, y: 5 }, enemyId: 'GUMMY_GOLEM' },
     ],
     npcs: [
       { pos: { x: 12, y: 10 }, dialogue: ['"I want fries. But I don\'t want to pay."', '"They charge extra for sauce now. That\'s criminal."'] },
@@ -1170,11 +1372,16 @@ export const MAPS: Record<string, MapData> = {
     doors: [
       { pos: { x: 12, y: 24 }, targetMap: 'BLACKWOOD', targetPos: { x: 12, y: 1 } },
       { pos: { x: 12, y: 0 }, targetMap: 'SHIBUYA_SKY', targetPos: { x: 7, y: 13 } },
-      { pos: { x: 5, y: 5 }, targetMap: 'FAST_FOOD_JOINT', targetPos: { x: 5, y: 5 } }
+      { pos: { x: 5, y: 5 }, targetMap: 'FAST_FOOD_JOINT', targetPos: { x: 5, y: 5 } },
+      { pos: { x: 5, y: 6 }, targetMap: 'RAMEN_SHOP', targetPos: { x: 5, y: 5 } },
+      { pos: { x: 10, y: 11 }, targetMap: 'GACHAPON_SHOP', targetPos: { x: 5, y: 5 } },
+      { pos: { x: 24, y: 12 }, targetMap: 'EIGHTH_CIRCLE', targetPos: { x: 1, y: 5 } }
     ],
     collectibles: [
       { pos: { x: 2, y: 2 }, id: 'LORE_1', name: 'Lost Memory: The Fall', description: 'A fragment of a memory from before the sky turned purple.', type: 'LORE' },
-      { pos: { x: 22, y: 22 }, id: 'STAT_1', name: 'Corrupted Data: HP Up', description: 'Increases Max HP by 10.', type: 'STAT_BOOST' }
+      { pos: { x: 22, y: 22 }, id: 'STAT_1', name: 'Corrupted Data: HP Up', description: 'Increases Max HP by 10.', type: 'STAT_BOOST' },
+      { pos: { x: 5, y: 18 }, id: 'STAT_6', name: 'Corrupted Data: Speed Up', description: 'Increases Speed by 5.', type: 'STAT_BOOST' },
+      { pos: { x: 18, y: 5 }, id: 'STAT_7', name: 'Corrupted Data: Defense Up', description: 'Increases Defense by 5.', type: 'STAT_BOOST' }
     ]
   },
   SHIBUYA_SKY: {
@@ -1211,6 +1418,8 @@ export const MAPS: Record<string, MapData> = {
       { pos: { x: 5, y: 12 }, enemyId: 'PSITRON' },
       { pos: { x: 20, y: 12 }, enemyId: 'SILENCE' },
       { pos: { x: 15, y: 20 }, enemyId: 'PLAGUE_BOSS' },
+      { pos: { x: 8, y: 8 }, enemyId: 'FACELESS' },
+      { pos: { x: 18, y: 18 }, enemyId: 'BOUNTY_HUNTER' },
     ],
     npcs: [
       { pos: { x: 18, y: 8 }, dialogue: ['"Hi! Do you want to be best friends?"', '"Eat the cookie. Be happy. Join us."'] },
@@ -1225,7 +1434,8 @@ export const MAPS: Record<string, MapData> = {
     ],
     collectibles: [
       { pos: { x: 2, y: 22 }, id: 'LORE_2', name: 'Lost Memory: The Cult', description: 'Notes detailing the rise of a strange cult on campus.', type: 'LORE' },
-      { pos: { x: 22, y: 2 }, id: 'STAT_2', name: 'Corrupted Data: Attack Up', description: 'Increases Attack by 5.', type: 'STAT_BOOST' }
+      { pos: { x: 22, y: 2 }, id: 'STAT_2', name: 'Corrupted Data: Attack Up', description: 'Increases Attack by 5.', type: 'STAT_BOOST' },
+      { pos: { x: 5, y: 5 }, id: 'STAT_8', name: 'Corrupted Data: Energy Up', description: 'Increases Max Energy by 10.', type: 'STAT_BOOST' }
     ]
   },
   PENTHOUSE: {
@@ -1287,6 +1497,8 @@ export const MAPS: Record<string, MapData> = {
       { pos: { x: 12, y: 12 }, enemyId: 'ERI_VAUN' },
       { pos: { x: 15, y: 12 }, enemyId: 'JACKHAMMER' },
       { pos: { x: 5, y: 15 }, enemyId: 'WAR_BOSS' },
+      { pos: { x: 18, y: 5 }, enemyId: 'BOUNTY_HUNTER' },
+      { pos: { x: 2, y: 10 }, enemyId: 'GLITCH' },
     ],
     npcs: [
       { pos: { x: 8, y: 8 }, dialogue: ['"SHOT THROUGH THE HEART! AND YOU\'RE TO BLAME!"', '"YOU GIVE HELL... A BAD NAME!"'] },
@@ -1298,7 +1510,8 @@ export const MAPS: Record<string, MapData> = {
       { pos: { x: 12, y: 24 }, targetMap: 'NURSERY', targetPos: { x: 10, y: 1 } }
     ],
     collectibles: [
-      { pos: { x: 2, y: 22 }, id: 'LORE_4', name: 'Lost Memory: The Contract', description: 'A charred contract signed in blood.', type: 'LORE' }
+      { pos: { x: 2, y: 22 }, id: 'LORE_4', name: 'Lost Memory: The Contract', description: 'A charred contract signed in blood.', type: 'LORE' },
+      { pos: { x: 22, y: 5 }, id: 'STAT_9', name: 'Corrupted Data: Attack Up', description: 'Increases Attack by 5.', type: 'STAT_BOOST' }
     ]
   },
   NURSERY: {
@@ -1319,10 +1532,33 @@ export const MAPS: Record<string, MapData> = {
     ],
     doors: [
       { pos: { x: 10, y: 0 }, targetMap: 'HELL', targetPos: { x: 12, y: 23 } },
-      { pos: { x: 10, y: 19 }, targetMap: 'THE_VOID', targetPos: { x: 10, y: 1 } }
+      { pos: { x: 10, y: 19 }, targetMap: 'SECRET_LAB', targetPos: { x: 7, y: 1 }, isLocked: true },
+      { pos: { x: 19, y: 10 }, targetMap: 'THE_VOID', targetPos: { x: 10, y: 1 } }
     ],
     collectibles: [
       { pos: { x: 2, y: 2 }, id: 'STAT_4', name: 'Corrupted Data: Ultimate Power', description: 'Increases Attack by 10 and Max HP by 20.', type: 'STAT_BOOST' }
+    ]
+  },
+  SECRET_LAB: {
+    id: 'SECRET_LAB',
+    name: 'Secret Lab',
+    width: 15,
+    height: 15,
+    tiles: secretLabTiles,
+    startPos: { x: 7, y: 1 },
+    enemies: [
+      { pos: { x: 7, y: 7 }, enemyId: 'THE_CREATOR' },
+      { pos: { x: 3, y: 3 }, enemyId: 'VOID_STALKER' },
+      { pos: { x: 11, y: 11 }, enemyId: 'CYBER_WOLF' }
+    ],
+    npcs: [
+      { pos: { x: 1, y: 1 }, dialogue: ['"The experiments here... they were never meant to see the light."'] }
+    ],
+    doors: [
+      { pos: { x: 7, y: 0 }, targetMap: 'NURSERY', targetPos: { x: 10, y: 18 } }
+    ],
+    collectibles: [
+      { pos: { x: 13, y: 13 }, id: 'STAT_10', name: 'Corrupted Data: Godly Defense', description: 'Increases Defense by 50.', type: 'STAT_BOOST' }
     ]
   },
   FAST_FOOD_JOINT: {
@@ -1463,22 +1699,67 @@ export const MAPS: Record<string, MapData> = {
     npcs: [],
     doors: [
       { pos: { x: 7, y: 0 }, targetMap: 'COLLAPSED_HELL', targetPos: { x: 7, y: 13 } },
-      { pos: { x: 7, y: 14 }, targetMap: 'SHANGRI_LA', targetPos: { x: 7, y: 1 } }
+      { pos: { x: 7, y: 14 }, targetMap: 'SHANGRI_LA', targetPos: { x: 7, y: 1 }, isLocked: true }
     ],
     collectibles: []
   },
-  SHANGRI_LA: {
-    id: 'SHANGRI_LA',
-    name: 'Shangri-La',
+  THE_NURSERY: {
+    id: 'THE_NURSERY',
+    name: 'The Nursery',
+    width: 20,
+    height: 20,
+    tiles: createEmptyMap(20, 20),
+    startPos: { x: 10, y: 18 },
+    enemies: [
+      { pos: { x: 5, y: 5 }, enemyId: 'SIREN' },
+      { pos: { x: 15, y: 15 }, enemyId: 'FACELESS' }
+    ],
+    npcs: [{ pos: { x: 10, y: 10 }, dialogue: ['"Welcome to your birthplace."', '"You were never meant to be free."'] }],
+    doors: [
+      { pos: { x: 10, y: 19 }, targetMap: 'SHIBUYA_STREET', targetPos: { x: 12, y: 1 } },
+      { pos: { x: 10, y: 0 }, targetMap: 'ARCHITECT_DOMAIN', targetPos: { x: 10, y: 18 } }
+    ],
+    collectibles: [
+      { pos: { x: 2, y: 2 }, id: 'LORE_1', name: 'The Prophecy', description: 'A dusty scroll detailing the end.', type: 'LORE' }
+    ]
+  },
+  ARCHITECT_DOMAIN: {
+    id: 'ARCHITECT_DOMAIN',
+    name: "Architect's Domain",
+    width: 25,
+    height: 25,
+    tiles: createEmptyMap(25, 25),
+    startPos: { x: 12, y: 22 },
+    enemies: [
+      { pos: { x: 12, y: 5 }, enemyId: 'ARCHITECT' }
+    ],
+    npcs: [],
+    doors: [
+      { pos: { x: 12, y: 24 }, targetMap: 'THE_NURSERY', targetPos: { x: 10, y: 1 } }
+    ],
+    collectibles: [
+      { pos: { x: 1, y: 1 }, id: 'GOD_SLAYER', name: 'God Slayer Sword', description: 'A blade that cuts through reality.', type: 'STAT_BOOST' }
+    ]
+  },
+  EIGHTH_CIRCLE: {
+    id: 'EIGHTH_CIRCLE',
+    name: 'The Eighth Circle - Karaoke & Grill',
     width: 15,
     height: 15,
-    tiles: createEmptyMap(15, 15),
-    startPos: { x: 7, y: 1 },
-    enemies: [],
-    npcs: [{ pos: { x: 7, y: 7 }, dialogue: ['"Even in heaven, you still carry the weight of a thousand lives once lived."', '"Welcome to paradise."'] }],
-    doors: [
-      { pos: { x: 7, y: 0 }, targetMap: 'SAVA_IOIYN_NURSIO', targetPos: { x: 7, y: 13 } }
+    tiles: eighthCircleTiles,
+    startPos: { x: 1, y: 7 },
+    enemies: [
+      { pos: { x: 7, y: 7 }, enemyId: 'ERI_VAUN' },
+      { pos: { x: 10, y: 10 }, enemyId: 'JACKHAMMER' }
     ],
-    collectibles: []
+    npcs: [
+      { pos: { x: 5, y: 5 }, dialogue: ['"Welcome to the Eighth Circle. Sing or die."'], isShop: true }
+    ],
+    doors: [
+      { pos: { x: 0, y: 7 }, targetMap: 'SHIBUYA', targetPos: { x: 23, y: 12 } }
+    ],
+    collectibles: [
+      { pos: { x: 13, y: 13 }, id: 'LORE_5', name: 'Lost Memory: The Song', description: 'A lyric sheet for a song that sounds like hellfire.', type: 'LORE' }
+    ]
   }
 };

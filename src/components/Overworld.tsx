@@ -10,7 +10,7 @@ export const Overworld = () => {
       <div className="absolute inset-0 scanlines pointer-events-none opacity-10" />
       <div className="mb-4 text-center relative z-10">
         <h2 className="text-xl text-purple-400 glitch-text">{currentMap.name}</h2>
-        <p className="text-[10px] text-gray-500 font-retro uppercase tracking-widest">WASD to Move | I for Inventory</p>
+        <p className="text-[10px] text-gray-500 font-retro uppercase tracking-widest">WASD to Move | I: Inventory | K: Skills | L: Lore</p>
       </div>
 
       <div 

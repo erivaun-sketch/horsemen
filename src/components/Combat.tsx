@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../game/GameEngine';
-import { CHARACTERS } from '../game/constants';
+import { CHARACTERS, ITEMS } from '../game/constants';
 
 export const Combat = () => {
-  const { player, setPlayer, currentEnemy, setGameState, logs, addLog, clearLogs, gainExp, showDialogue } = useGame();
+  const { player, setPlayer, currentEnemy, setGameState, logs, addLog, clearLogs, gainExp, showDialogue, useItem } = useGame();
   const [enemyHp, setEnemyHp] = useState(currentEnemy?.hp || 1);
   const [isPlayerTurn, setIsPlayerTurn] = useState(true);
 
@@ -13,16 +13,19 @@ export const Combat = () => {
 
   const handleWin = () => {
     addLog(`Defeated ${currentEnemy.name}!`);
-    const shards = currentEnemy.soulShardDrop;
+    const shardGain = Math.floor(currentEnemy.soulShardDrop * (1 + (player.level - 1) * 0.1));
     const exp = Math.floor(currentEnemy.maxHp / 2) + (currentEnemy.isBoss ? 500 : 0);
     
-    addLog(`Gained ${shards} Soul Shards and ${exp} EXP!`);
+    addLog(`Gained ${shardGain} Soul Shards and ${exp} EXP!`);
     
     // Update player
-    setPlayer({ 
-      ...player, 
-      soulShards: player.soulShards + shards,
-      mindControlDuration: 0 
+    setPlayer(prev => {
+      if (!prev) return prev;
+      return { 
+        ...prev, 
+        soulShards: prev.soulShards + shardGain,
+        mindControlDuration: 0 
+      };
     });
     
     gainExp(exp);
@@ -296,7 +299,7 @@ export const Combat = () => {
       
       if (shouldMindControl) {
         addLog(`${currentEnemy.name} uses PSY-OVERRIDE! ${player.name}'s mind is being hijacked!`);
-        setPlayer({ ...player, mindControlDuration: 3 });
+        setPlayer(prev => prev ? { ...prev, mindControlDuration: 3 } : prev);
         setIsPlayerTurn(true);
       } else {
         const dodgeChance = Math.max(0, (player.speed || 10) - (currentEnemy.speed || 10)) * 0.01;
@@ -311,12 +314,14 @@ export const Combat = () => {
         
         const newHp = player.hp - dmg;
         // Decrease mind control duration at end of enemy turn if active
-        const newMindControlDuration = Math.max(0, player.mindControlDuration - 1);
         
-        setPlayer({ 
-          ...player, 
-          hp: Math.max(0, newHp),
-          mindControlDuration: newMindControlDuration
+        setPlayer(prev => {
+          if (!prev) return prev;
+          return { 
+            ...prev, 
+            hp: Math.max(0, prev.hp - dmg),
+            mindControlDuration: Math.max(0, prev.mindControlDuration - 1)
+          };
         });
         
         if (newHp <= 0) {
@@ -356,7 +361,7 @@ export const Combat = () => {
     if (!isPlayerTurn || player.energy < 10) return;
     setIsPlayerTurn(false);
     
-    setPlayer({ ...player, energy: player.energy - 10 });
+    setPlayer(prev => prev ? { ...prev, energy: prev.energy - 10 } : prev);
 
     if (player.skillName === 'Mind Control' && currentEnemy.canMindControl !== false) {
       addLog(`${player.name} uses Mind Control!`);
@@ -436,11 +441,18 @@ export const Combat = () => {
 
   const handleItem = () => {
     if (!isPlayerTurn) return;
-    setIsPlayerTurn(false);
     
-    const heal = 30;
-    setPlayer({ ...player, hp: Math.min(player.maxHp, player.hp + heal) });
-    addLog(`${player.name} ate a questionable snack and recovered ${heal} HP!`);
+    const consumableId = player.inventory.find(id => ITEMS[id].type === 'CONSUMABLE');
+    
+    if (!consumableId) {
+      addLog("No consumables in inventory!");
+      return;
+    }
+
+    setIsPlayerTurn(false);
+    const item = ITEMS[consumableId];
+    addLog(`${player.name} uses ${item.name}!`);
+    useItem(consumableId);
     
     enemyTurn(enemyHp);
   };
@@ -477,7 +489,7 @@ export const Combat = () => {
     addLog(`MIND CONTROL: ${player.name} is forced to strike themselves for ${dmg} damage!`);
     
     const newHp = player.hp - dmg;
-    setPlayer({ ...player, hp: Math.max(0, newHp) });
+    setPlayer(prev => prev ? { ...prev, hp: Math.max(0, prev.hp - dmg) } : prev);
     
     if (newHp <= 0) {
       handleLose();
@@ -502,7 +514,7 @@ export const Combat = () => {
     
     const waste = 20;
     addLog(`MIND CONTROL: ${player.name} screams in mental agony, wasting ${waste} energy!`);
-    setPlayer({ ...player, energy: Math.max(0, player.energy - waste) });
+    setPlayer(prev => prev ? { ...prev, energy: Math.max(0, prev.energy - waste) } : prev);
     enemyTurn(enemyHp);
   };
 

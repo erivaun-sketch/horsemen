@@ -10,6 +10,7 @@ import { Shop } from './components/Shop';
 import { Inventory } from './components/Inventory';
 import { Cutscene } from './components/Cutscene';
 import { SkillTree } from './components/SkillTree';
+import { LoreBook } from './components/LoreBook';
 
 const GameContainer = () => {
   const { gameState } = useGame();
@@ -25,6 +26,7 @@ const GameContainer = () => {
       {gameState === 'INVENTORY' && <Inventory />}
       {gameState === 'CUTSCENE' && <Cutscene />}
       {gameState === 'SKILL_TREE' && <SkillTree />}
+      {gameState === 'LORE_BOOK' && <LoreBook />}
       
       {gameState === 'DIALOGUE' && <DialogueBox />}
     </div>
