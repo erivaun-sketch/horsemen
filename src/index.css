@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", monospace;
+  --font-retro: "VT323", monospace;
+}
+
+@layer utilities {
+  .crt::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 50;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+  
+  .crt-flicker {
+    animation: flicker 0.15s infinite;
+  }
+
+  .glitch-text {
+    text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+    animation: text-glitch 2s infinite;
+  }
+
+  .scanlines {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 40;
+  }
+
+  .pixel-borders {
+    box-shadow: 
+      inset 4px 0 0 0 white,
+      inset 0 4px 0 0 white,
+      inset -4px 0 0 0 white,
+      inset 0 -4px 0 0 white;
+  }
+}
+
+@keyframes flicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+@keyframes text-glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+body {
+  background-color: #050505;
+  color: #e0e0e0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Hide scrollbar for game feel */
+::-webkit-scrollbar {
+  display: none;
+}
